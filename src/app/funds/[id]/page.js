@@ -6,6 +6,7 @@ import Badge from '@/components/Badge';
 import DataTable from '@/components/DataTable';
 import StatCard from '@/components/StatCard';
 import FundActions from '../FundActions';
+import FundBalanceChart from '@/components/FundBalanceChart';
 import { getFundDetail } from '@/lib/queries';
 import { formatDate } from '@/lib/format';
 
@@ -117,6 +118,8 @@ export default async function FundDetailPage({ params }) {
           <ProgressBar value={fund.balance} max={fund.target_amount} size="lg" />
         </div>
       )}
+
+      <FundBalanceChart transactions={fund.transactions} />
 
       <div style={{ display: 'flex', flexDirection: 'column', gap: 'var(--space-md)' }}>
         <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
