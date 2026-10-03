@@ -580,10 +580,10 @@ html, body {
 }
 .progress-bar {
   width: 100%;
-  background-color: var(--bg-secondary);
+  background-color: rgba(255, 255, 255, 0.08);
   border-radius: var(--radius-full);
   overflow: hidden;
-  border: 1px solid var(--border-subtle);
+  border: 1px solid var(--border-focus);
 }
 .progress-bar-sm { height: 4px; }
 .progress-bar-md { height: 8px; }
@@ -714,3 +714,145 @@ html, body {
 
 
 
+
+/* Date Picker */
+.date-picker {
+  position: relative;
+}
+
+.date-picker-input {
+  cursor: pointer;
+  user-select: none;
+}
+
+.date-picker-dropdown {
+  position: absolute;
+  top: calc(100% + 4px);
+  left: 0;
+  z-index: 50;
+  background: var(--bg-primary);
+  border: 1px solid var(--border-subtle);
+  border-radius: var(--radius-md);
+  box-shadow: var(--shadow-lg);
+  padding: var(--space-sm);
+  width: 280px;
+  animation: fadeIn var(--transition-fast) ease-out forwards;
+}
+
+.date-picker-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: var(--space-xs) var(--space-xs);
+  margin-bottom: var(--space-xs);
+}
+
+.date-picker-header span {
+  font-weight: 600;
+  font-size: 0.875rem;
+  color: var(--text-primary);
+}
+
+.date-picker-nav {
+  background: none;
+  border: none;
+  color: var(--text-secondary);
+  cursor: pointer;
+  padding: var(--space-xs) var(--space-sm);
+  border-radius: var(--radius-sm);
+  font-size: 1.25rem;
+  line-height: 1;
+  transition: all var(--transition-fast);
+  font-family: inherit;
+}
+
+.date-picker-nav:hover {
+  background: var(--bg-secondary);
+  color: var(--text-primary);
+}
+
+.date-picker-weekdays {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  text-align: center;
+  margin-bottom: var(--space-xs);
+}
+
+.date-picker-weekday {
+  font-size: 0.7rem;
+  font-weight: 600;
+  color: var(--text-muted);
+  text-transform: uppercase;
+  padding: var(--space-xs) 0;
+}
+
+.date-picker-grid {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  gap: 1px;
+}
+
+.date-picker-day {
+  aspect-ratio: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.8rem;
+  border-radius: var(--radius-sm);
+  border: 1px solid transparent;
+  background: none;
+  color: var(--text-primary);
+  cursor: pointer;
+  transition: all var(--transition-fast);
+  font-family: inherit;
+}
+
+.date-picker-day:hover {
+  background: var(--bg-secondary);
+}
+
+.date-picker-day.other-month {
+  color: var(--text-muted);
+  opacity: 0.4;
+}
+
+.date-picker-day.today {
+  border-color: var(--accent-emerald);
+  color: var(--accent-emerald);
+}
+
+.date-picker-day.selected {
+  background: var(--accent-emerald);
+  color: var(--text-inverse);
+  font-weight: 600;
+  border-color: var(--accent-emerald);
+}
+
+.date-picker-day.selected:hover {
+  background: #3bce70;
+}
+
+.date-picker-footer {
+  display: flex;
+  justify-content: center;
+  padding-top: var(--space-xs);
+  border-top: 1px solid var(--border-subtle);
+  margin-top: var(--space-xs);
+}
+
+.date-picker-today-btn {
+  background: none;
+  border: none;
+  color: var(--accent-emerald);
+  cursor: pointer;
+  font-size: 0.8rem;
+  font-weight: 500;
+  padding: var(--space-xs) var(--space-sm);
+  border-radius: var(--radius-sm);
+  transition: all var(--transition-fast);
+  font-family: inherit;
+}
+
+.date-picker-today-btn:hover {
+  background: var(--accent-emerald-dim);
+}

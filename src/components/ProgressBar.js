@@ -1,7 +1,8 @@
 import React from 'react';
 
 export default function ProgressBar({ value, max = 100, showLabel = false, size = 'md' }) {
-  const percentage = Math.min(100, Math.max(0, (value / max) * 100));
+  const ratio = max > 0 ? (Number(value) || 0) / max : 0;
+  const percentage = Math.min(100, Math.max(0, ratio * 100));
   
   let fillBg = 'var(--accent-emerald)';
   if (percentage < 25) {
@@ -23,7 +24,8 @@ export default function ProgressBar({ value, max = 100, showLabel = false, size 
           className="progress-fill" 
           style={{ 
             width: `${percentage}%`,
-            background: `linear-gradient(90deg, ${fillBg}88, ${fillBg})`
+            backgroundColor: fillBg,
+            backgroundImage: `linear-gradient(90deg, color-mix(in srgb, ${fillBg} 60%, transparent), ${fillBg})`
           }} 
         />
       </div>
