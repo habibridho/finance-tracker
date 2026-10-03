@@ -4,6 +4,7 @@ import { useState, useEffect } from 'react';
 import { useRouter } from 'next/navigation';
 import PageHeader from '@/components/PageHeader';
 import FormField from '@/components/FormField';
+import DatePicker from '@/components/DatePicker';
 import { useToast } from '@/components/Toast';
 import { formatRupiah } from '@/lib/format';
 
@@ -221,7 +222,7 @@ export default function NewTransactionPage() {
         {/* SECTION 1: Transaction Info */}
         <div style={{ display: 'grid', gridTemplateColumns: '1fr 2fr', gap: 'var(--space-md)' }}>
           <FormField label="Date">
-            <input type="text" required className="form-input" placeholder="YYYY-MM-DD" pattern="\d{4}-\d{2}-\d{2}" title="Date format: YYYY-MM-DD" value={date} onChange={e => setDate(e.target.value)} />
+            <DatePicker value={date} onChange={setDate} required />
           </FormField>
           
           <FormField label="Description">
