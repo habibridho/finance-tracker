@@ -12,7 +12,7 @@ export async function GET(request, { params }) {
     if (!rule) return NextResponse.json({ error: 'Not found' }, { status: 404 });
     
     const lines = sqlite.prepare(`
-      SELECT dl.*, f.name as fundName 
+      SELECT dl.*, f.name as fund_name 
       FROM distribution_lines dl 
       JOIN funds f ON dl.fund_id = f.id 
       WHERE dl.rule_id = ?

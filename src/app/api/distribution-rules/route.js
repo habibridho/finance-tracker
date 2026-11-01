@@ -8,7 +8,7 @@ export async function GET() {
   try {
     const rules = sqlite.prepare('SELECT * FROM distribution_rules').all();
     const getLines = sqlite.prepare(`
-      SELECT dl.*, f.name as fundName 
+      SELECT dl.*, f.name as fund_name 
       FROM distribution_lines dl 
       JOIN funds f ON dl.fund_id = f.id 
       WHERE dl.rule_id = ?
